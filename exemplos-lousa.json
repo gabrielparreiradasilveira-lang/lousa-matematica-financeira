@@ -1,0 +1,23 @@
+{
+  "aviso": "Casos verificados do motor da HP12C virtual (/workspace/hp12c). Os valores esperados vieram dos testes da HP12C; a lousa os recalcula com o mesmo motor.",
+  "exemplos": [
+    { "id": "a", "nome": "(a) FV: 1.000 aplicados a 1% por 12 períodos", "tipo": "tvm", "calcular": "FV",
+      "valores": { "PV": -1000, "n": 12, "i": 1 }, "beg": false, "dec": 2, "esperado": "1.126,83" },
+    { "id": "b", "nome": "(b) PMT END: 100.000 a 1% em 360 parcelas", "tipo": "tvm", "calcular": "PMT",
+      "valores": { "PV": 100000, "i": 1, "n": 360, "FV": 0 }, "beg": false, "dec": 2, "esperado": "-1.028,61" },
+    { "id": "c", "nome": "(c) i: de 1.000 para 1.500 em 24 períodos", "tipo": "tvm", "calcular": "i",
+      "valores": { "PV": -1000, "FV": 1500, "n": 24, "PMT": 0 }, "beg": false, "dec": 2, "esperado": "1,70" },
+    { "id": "d", "nome": "(d) PMT BEG: 100.000 a 1% em 360 parcelas antecipadas", "tipo": "tvm", "calcular": "PMT",
+      "valores": { "PV": 100000, "i": 1, "n": 360, "FV": 0 }, "beg": true, "dec": 2, "esperado": "-1.018,43" },
+    { "id": "e", "nome": "(e) FV: 5.000 CHS PV, 200 CHS PMT, 24 n, 1 i", "tipo": "tvm", "calcular": "FV",
+      "valores": { "PV": -5000, "PMT": -200, "n": 24, "i": 1 }, "beg": false, "dec": 2, "esperado": "11.743,37" },
+    { "id": "n", "nome": "Extra: n (resolve 12 períodos)", "tipo": "tvm", "calcular": "n",
+      "valores": { "PV": -1000, "i": 1, "FV": 1126.825, "PMT": 0 }, "beg": false, "dec": 2, "esperado": "12,00" },
+    { "id": "pv", "nome": "Extra: PV (volta para -1.000)", "tipo": "tvm", "calcular": "PV",
+      "valores": { "i": 1, "n": 12, "FV": 1126.83 }, "beg": false, "dec": 2, "esperado": "-1.000,00" },
+    { "id": "conv1", "nome": "Taxa equivalente: 1% ao mês → ao ano", "tipo": "conv", "direcao": "curta-longa",
+      "taxa": 1, "k": 12, "curta": "mês", "longa": "ano", "dec": 2, "esperado": "12,68" },
+    { "id": "conv2", "nome": "Taxa equivalente: 12% ao ano → ao mês", "tipo": "conv", "direcao": "longa-curta",
+      "taxa": 12, "k": 12, "curta": "mês", "longa": "ano", "dec": 4, "esperado": "0,9489" }
+  ]
+}
